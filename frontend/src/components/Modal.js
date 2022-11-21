@@ -1,5 +1,13 @@
 import '../styles/modal.css'
-
+/**
+ * Конструктор для модального окна
+ * @constructor
+ * @param {boolean} open - состояние окна
+ * @param {string} modalLable - заголовок окна
+ * @param {string} children - компонент окна
+ * @param {string} custom_modal - класс окна
+ * @param {function} onClose - функция закрытия окна
+ */
 function Modal({open, modalLable, children, custom_modal, onClose}) {
 
   const handleClose = (e) => {

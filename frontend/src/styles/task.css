@@ -15,7 +15,11 @@
 	border-color: green;
 	box-shadow: 0 6px 18px -9px hsl(210, 15%, 65%);
   }
-  
+  .task--borderColorRed{
+	border-color: red;
+	box-shadow: 0 6px 18px -9px hsl(210, 15%, 65%);
+  }
+
   .task__body {
 	display: flex;
 	flex-direction: column;

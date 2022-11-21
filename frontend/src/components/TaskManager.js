@@ -5,12 +5,15 @@ import {collection, query, orderBy, onSnapshot} from "firebase/firestore"
 import {db} from '../firebase'
 import AddTask from './AddTask'
 
+/**
+ * Конструктор для создания приложения
+ * @constructor
+ */
 function TaskManager() {
-
   const [openAddModal, setOpenAddModal] = useState(false)
   const [tasks, setTasks] = useState([])
 
-  /* function to get all tasks from firestore in realtime */ 
+  /* функция получающая список всех задач из firestore */ 
   useEffect(() => {
     const taskColRef = query(collection(db, 'tasks'), orderBy('created', 'desc'))
     onSnapshot(taskColRef, (snapshot) => {
@@ -20,14 +23,13 @@ function TaskManager() {
       })))
     })
   },[])
-
   return (
     <div className='taskManager'>
       <header>Task Manager</header>
       <div className='taskManager__container'>
         <button 
           onClick={() => setOpenAddModal(true)}>
-          Add task +
+          Добавить задачу +
         </button>
         <div className='taskManager__tasks'>
 
@@ -36,8 +38,10 @@ function TaskManager() {
               id={task.id}
               key={task.id}
               completed={task.data.completed}
-              title={task.data.title} 
+              title={task.data.title}
+			  file={task.data.file} 
               description={task.data.description}
+			  date={task.data.date}
             />
           ))}
 
